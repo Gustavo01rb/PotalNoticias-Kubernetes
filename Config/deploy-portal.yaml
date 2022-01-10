@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-deploy
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: portal-pod
+      labels:
+        app: portal-pod
+    spec:
+      containers:
+        - name: container-portal-pod
+          image: aluracursos/portal-noticias:1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: portal-cm
+  selector:
+    matchLabels:
+      app: portal-pod

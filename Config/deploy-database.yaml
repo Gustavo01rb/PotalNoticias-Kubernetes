@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deploy
+spec:
+  template:
+    metadata:
+      name: database-pod
+      labels:
+        app: database-pod
+    spec:
+      containers:
+        - name: container-database
+          image: aluracursos/mysql-db:1
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - configMapRef:
+                name: database-cm
+  selector:
+    matchLabels:
+      app: database-pod
