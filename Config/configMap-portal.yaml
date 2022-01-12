@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: portal-cm
 data:
-  IP_SISTEMA: http://192.168.99.100:30001 #Altere aqui o IP obtido pelo comando "get node -o wide"
+  IP_SISTEMA: http://192.168.99.100:30001  #Altere aqui o IP obtido pelo comando "get node -o wide"
